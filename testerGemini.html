@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sanjaya's Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <!-- Icon atau Logo Sosmed -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="icon" type="image/x-icon" href="icon/favicon-16x16.png">
+
+    <style>
+        /*--- Color Code ---*/
+        body {
+            font-family: 'Roboto', Arial, sans-serif;
+            font-size: 14px;
+            margin: 0;
+            font-weight: 500;
+            color: rgb(61, 61, 61);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            margin: 0 auto;
+            width: 90%;
+            max-width: 1100px;
+        }
+
+        h1 {
+            font-weight: bold;
+            font-size: 40px;
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        h2, span {
+            font-size: px;
+            margin: 0;
+            font-weight: 500;
+        }
+
+        .description {
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 1.75;
+            text-align: justify;
+            max-width: 700px;
+        }
+
+        /*--- Bagian Header ---*/
+        .navbar {
+            background-color: white;
+            height: 60px;
+            display: flex;
+            flex-direction: row;
+            position: fixed;
+            z-index: 100;
+            justify-content: space-between;
+            align-items: center;
+            top: 0;
+            right: 0;
+            left: 0;
+            box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.15);
+        }
+
+        .nav-logo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding-left: 5%; 
+            transition: scale 0.2s;
+        }
+
+        .nav-logo:hover {
+            scale: 1.05;
+        }
+
+        .nav-logo img {
+            height: 40px;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 24px;
+            padding-right: 5%;
+        }
+
+        .nav-menu a {
+            display: block;
+            position: relative;
+            font-size: 14px;
+        }
+
+        .nav-menu a::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -4px;
+            width: 0;
+            height: 2px;
+            background: black;
+            transition: width 0.4s ease;
+        }
+
+        .nav-menu a:hover::after {
+            width: 100%;
+        }
+
+        .cont-primary {
+            background: radial-gradient(
+                circle at top right,
+                #83e06b34 0%,
+                #ffffff 50%,
+                #bbb4561c 100%
+            );
+            padding: 60px 0;
+            box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.15);
+        }
+
+        .cont-secondary {
+            padding: 60px 0;
+            background-color: white;
+        }
+
+        /*--- Bagian Hero ---*/
+        .hero {
+            padding: 120px 0 60px 0;
+        }
+
+        .hero-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .grid-hero {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .left-section-hero {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .name {
+            background: -webkit-linear-gradient(#27c009, #2563eb);
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-size: 40px;
+            transition: transform 0.3s, scale 0.3s;
+            transform-origin: left;
+        }
+
+        .name:hover {
+            scale: 1.1;
+        }
+
+        .hero-text {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .ht-h1 {
+            transform-origin: left;
+            transition: transform 0.3s, scale 0.3s;
+        }
+
+        .ht-h1:hover {
+            scale: 1.1;
+        }
+
+        .hero-picture {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+
+        .hero-picture img {
+            width: 100%;
+            max-width: 400px;
+            height: auto;
+            border-radius: 20px;
+            object-fit: cover;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 12px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 10px 18px;
+            border-radius: 999px;
+            font-size: 14px;
+            border: 1px solid transparent;
+            cursor: pointer;
+            text-align: center;
+            transition: scale 0.15s, transform 0.12s ease, box-shadow 0.12s ease;
+        }
+
+        .btn:hover {
+            scale: 1.05;
+        }
+
+        .btn.primary {
+            background-color: #2563eb;
+            color: #ffffff;
+            box-shadow: 0 10px 25px rgba(37, 99, 235, 0.3);
+        }
+
+        .btn.secondary {
+            background-color: transparent;
+            color: #2563eb;
+            border-color: #2563eb;
+        }
+
+        /* About Section */
+        .about-content,
+        .experience-description {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .experience-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 28px;
+            margin-top: 30px;
+            width: 100%;
+        }
+
+        .card {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            border-radius: 8px;
+            border: 1px solid rgba(0, 0, 0, 0.11);
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+            background: white;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-image img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .card-title {
+            font-size: 18px;
+            font-weight: 700;
+            padding: 12px 12px 4px 12px;
+            text-align: left;
+        }
+
+        .card-description {
+            font-size: 13px;
+            padding: 0 12px;
+            text-align: justify;
+            color: #555;
+            flex-grow: 1;
+        }
+
+        .card-footer {
+            display: flex;
+            gap: 8px;
+            padding: 20px 12px 20px 12px;
+        }
+
+        .card-link a {
+            font-weight: bold;
+            color: #2563eb;
+            border: 1px solid #2563eb;
+            border-radius: 20px;
+            padding: 8px 24px;
+            font-size: 12px;
+            transition: all 0.2s;
+            display: inline-block;
+        }
+
+        .card-link a:hover {
+            background-color: #2563eb;
+            color: #ffffff;
+        }
+
+        /* --- STYLE KHUSUS GALLERY SLIDER --- */
+        .slider-wrapper {
+            position: relative;
+            width: 100%;
+            margin-top: 30px;
+            display: flex;
+            align-items: center;
+        }
+
+        .gallery-slider {
+            display: flex;
+            gap: 20px;
+            overflow-x: auto;
+            padding: 20px 5px;
+            scroll-snap-type: x mandatory;
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        
+        .gallery-slider::-webkit-scrollbar {
+            display: none;
+        }
+
+        .gallery-card-item {
+            flex: 0 0 auto;
+            width: 280px;
+            scroll-snap-align: start; 
+            
+            display: flex;
+            flex-direction: column;
+            border-radius: 12px;
+            background: white;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-card-item:hover {
+            transform: scale(1.02);
+        }
+
+        .gallery-card-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .gallery-caption {
+            padding: 15px;
+            text-align: center;
+            font-weight: bold;
+            color: #333;
+        }
+
+        /* Tombol Navigasi Slider */
+        .slide-btn {
+            background-color: #2563eb;
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            z-index: 10;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+            transition: background 0.2s;
+            flex-shrink: 0;
+        }
+
+        .slide-btn:hover {
+            background-color: #1d4ed8;
+        }
+
+        .prev-btn { margin-right: 10px; }
+        .next-btn { margin-left: 10px; }
+
+        @media (max-width: 768px) {
+            .slide-btn {
+                display: none;
+            }
+            .gallery-card-item {
+                width: 85vw;
+                scroll-snap-align: center;
+            }
+        }
+
+        /* --- CONTACT SECTION MINIMALIST (NEW) --- */
+        .contact-minimal {
+            padding: 50px 0 30px 0; /* Jauh lebih kecil paddingnya */
+            background-color: #f8fafc; /* Warna latar sedikit abu, beda tipis dari putih */
+            text-align: center;
+        }
+
+        .contact-minimal h1 {
+            font-size: 28px; /* Font judul lebih kecil */
+            margin-bottom: 15px;
+            color: #333;
+        }
+        
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 25px;
+            flex-wrap: wrap;
+        }
+
+        .contact-link-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 16px;
+            color: #555;
+            transition: color 0.2s, transform 0.2s;
+            padding: 8px 16px;
+            border-radius: 50px;
+        }
+
+        .contact-link-item:hover {
+            color: #2563eb;
+            background-color: rgba(37, 99, 235, 0.05); /* Sedikit highlight saat hover */
+            transform: translateY(-2px);
+        }
+
+        .contact-link-item i {
+            font-size: 20px;
+        }
+
+        /* Footer */
+        .footer {
+            padding: 20px 0;
+            background-color: #ffffff;
+            border-top: 1px solid #e5e7eb;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .grid-hero {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .left-section-hero {
+                align-items: center;
+            }
+            
+            .hero-text {
+                justify-content: center;
+            }
+
+            .nav-menu {
+                display: none;
+            }
+            
+            .experience-content {
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header/Navbar -->
+    <header class="navbar">
+        <div class="nav-logo">
+            <a href="/index.html"><img src="/icon/android-chrome-512x512.png" alt="Logo"></a>
+        </div>
+        <div class="nav-menu">
+            <a href="#hero">Home</a>
+            <a href="#about">About</a>
+            <a href="#project">Projects</a>
+            <a href="#gallery">Gallery</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <div id="hero" class="cont-primary hero">
+        <div class="container hero-content">
+            <div class="grid-hero">
+                <div class="left-section-hero">
+                    <div>
+                        <h2>Hello, my name</h2>
+                        <h1 class="name"><a href="#">Ilman Sanjaya</a></h1>
+                    </div>
+                    <div class="hero-text">
+                        <h2 class="normal-text">I'm</h2>
+                        <h1 class="ht-h1" style="color: #2563eb;">Data Analyst</h1>
+                    </div>
+                    <div class="hero-text">
+                        <h2 class="normal-text">and</h2>
+                        <h1 class="ht-h1" style="color: #2563eb;">Front-End Developer</h1>
+                    </div>
+                    <div class="hero-buttons">
+                        <a href="#about" class="btn primary">About Me</a>
+                        <a href="/document/CV Rifqi Ilman Sanjaya.pdf" class="btn secondary">Download CV</a>
+                    </div>
+                </div>
+                <div class="hero-picture">
+                    <img src="/picture/hero-picture.png" alt="Hero Picture">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- About Me -->
+    <div id="about" class="cont-secondary">
+        <div class="container about-content">
+            <div class="about-description">
+                <h1>About Me</h1>
+                <p class="description">
+                    Hello! I am <strong>Ilman Sanjaya</strong>, with experience working in multinational companies <strong>(Palm Oil Plantation and Seed Production Company)</strong>. I have an interest in <strong>Data Analysis and Programming Languages.</strong> This field helps me view problems in a more measurable way and provides opportunities to develop technology-based solutions.
+                </p>
+            </div>
+
+            <div class="experience-description">
+                <h1>Experiences</h1>
+                <p class="description">My Professional Experience.</p>
+            </div>
+
+            <div class="container experience-content">
+                <!-- Card 1 -->
+                <div class="card">
+                    <div class="card-image">
+                        <img src="/picture/BCA2.jpeg" alt="Work">
+                    </div>
+                    <div class="card-title">Field Quality Supervisor (2025 - Now)</div>
+                    <div class="card-description">Overseeing Field Quality and ensuring regulatory compliance for corn seed certification within two East Java districts, specifically Blitar and Tulungagung.</div>
+                    <div class="card-footer">
+                        <div class="card-link"><a href="#">View</a></div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-image">
+                        <img src="/picture/TBM.jpeg" alt="Work">
+                    </div>
+                    <div class="card-title">Staff Agrotech - Palm Oil Plantation (2024)</div>
+                    <div class="card-description">Responsible for analyzing and supervising all agronomic practices and performance across plantation region.</div>
+                    <div class="card-footer">
+                        <div class="card-link"><a href="#">View</a></div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-image">
+                        <img src="/picture/PTPNXII.jpeg" alt="Work">
+                    </div>
+                    <div class="card-title">Field Assistant - Internship (2023)</div>
+                    <div class="card-description">Executing daily planning, supervision, and monitoring of all agronomic and field activities within an assigned section/division of the PTPN XII Robusta Coffee plantation.</div>
+                    <div class="card-footer">
+                        <div class="card-link"><a href="#">View</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Projects Section -->
+    <div id="project" class="cont-primary project">
+        <div class="container project">
+            <div class="about-description">
+                <h1>Projects</h1>
+                <p class="description">Here are some projects I have worked on.</p>
+            </div>
+            
+            <div class="container experience-content">
+                <div class="card">
+                    <div class="card-image">
+                        <img src="/picture/Annual Report 2.jpeg" alt="Project">
+                    </div>
+                    <div class="card-title">Creative Lead, Annual Report GenBI Jember</div>
+                    <div class="card-description">Leading the conceptualization, design direction, and execution of the company's official Annual Report.</div>
+                    <div class="card-footer">
+                       <!-- <div class="card-link"><a href="#">View</a></div> -->
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?w=500&auto=format&fit=crop" alt="Project">
+                    </div>
+                    <div class="card-title">Portfolio Highlights (2025)</div>
+                    <div class="card-description">Here are a few 'sample projects' I developed throughout 2025.</div>
+                    <div class="card-footer">
+                        <!--  <div class="card-link"><a href="#">Live</a></div> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Gallery Section (INFINITE HORIZONTAL SLIDER) -->
+    <div id="gallery" class="cont-secondary">
+        <div class="container about-content">
+            <div class="about-description">
+                <h1>Gallery</h1>
+                <p class="description">Documentation and records of daily field and office operations.</p>
+            </div>
+
+            <!-- Wrapper Slider -->
+            <div class="slider-wrapper">
+                <button class="slide-btn prev-btn" id="prevBtn">&#10094;</button>
+                
+                <div class="gallery-slider" id="gallerySlider">
+                    <!-- Item 1 -->
+                    <div class="gallery-card-item">
+                        <img src="/picture/BCA.jpeg" alt="Gallery 1">
+                        <div class="gallery-caption">Field Visit PT. BCA</div>
+                    </div>
+                    <!-- Item 2 -->
+                    <div class="gallery-card-item">
+                        <img src="/picture/BCA2.jpeg" alt="Gallery 2">
+                        <div class="gallery-caption">Meetup PT. BCA</div>
+                    </div>
+                    <!-- Item 3 -->
+                    <div class="gallery-card-item">
+                        <img src="/picture/TBM2.jpeg" alt="Gallery 3">
+                        <div class="gallery-caption">TBM - Replanting PT. BGA</div>
+                    </div>
+                    <!-- Item 4 -->
+                    <div class="gallery-card-item">
+                        <img src="/picture/Rohul.jpeg" alt="Gallery 4">
+                        <div class="gallery-caption">Road Maintanance PT. BGA</div>
+                    </div>
+                    <!-- Item 5 -->
+                    <div class="gallery-card-item">
+                        <img src="/picture/Annual Report 2.jpeg" alt="Gallery 5">
+                        <div class="gallery-caption">Annual Report GenBI Jember 2022</div>
+                    </div>
+                    
+                    <!--
+                    <div class="gallery-card-item">
+                        <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?w=500&auto=format&fit=crop" alt="Gallery 6">
+                        <div class="gallery-caption">Site Inspection</div>
+                    </div>
+                    
+                    <div class="gallery-card-item">
+                        <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?w=500&auto=format&fit=crop" alt="Gallery 7">
+                        <div class="gallery-caption">Conference 2023</div>
+                    </div>
+                    
+                    <div class="gallery-card-item">
+                        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=500&auto=format&fit=crop" alt="Gallery 8">
+                        <div class="gallery-caption">Team Briefing</div>
+                    </div>
+                    
+                    <div class="gallery-card-item">
+                        <img src="https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?w=500&auto=format&fit=crop" alt="Gallery 9">
+                        <div class="gallery-caption">Presentasi Akhir</div>
+                    </div>
+                    
+                    <div class="gallery-card-item">
+                        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=500&auto=format&fit=crop" alt="Gallery 10">
+                        <div class="gallery-caption">Workshop Tech</div>
+                    </div>
+                    -->
+                </div>
+
+                <button class="slide-btn next-btn" id="nextBtn">&#10095;</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Section MINIMALIST -->
+    <div id="contact" class="contact-minimal">
+        <div class="container">
+            <h1>Contact Me</h1>
+            <p class="description" style="margin: 0 auto 20px auto; max-width: 600px; text-align: center;">
+                Let's connect for collaborations or any questions you may have.
+            </p>
+
+            <div class="contact-links">
+                <!-- Email -->
+                <a href="mailto:rifqisanjaya.work@gmail.com" class="contact-link-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>Email</span>
+                </a>
+                
+                <!-- LinkedIn -->
+                <a href="https://linkedin.com/in/ilmansanjaya" target="_blank" class="contact-link-item">
+                    <i class="fab fa-linkedin"></i>
+                    <span>LinkedIn</span>
+                </a>
+
+                <!-- Instagram -->
+                <a href="https://instagram.com/ilmansanjaya" target="_blank" class="contact-link-item">
+                    <i class="fab fa-instagram"></i>
+                    <span>Instagram</span>
+                </a>
+
+                <!-- GitHub -->
+                <a href="https://github.com/ilmansanjaya" target="_blank" class="contact-link-item">
+                    <i class="fab fa-github"></i>
+                    <span>GitHub</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <p>© <span id="year"></span> Rifqi Ilman Sanjaya. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scroll untuk link navbar
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Set Tahun Footer
+        const yearSpan = document.getElementById("year");
+        if (yearSpan) {
+            yearSpan.textContent = new Date().getFullYear();
+        }
+
+        /* --- LOGIKA INFINITE SLIDER --- */
+        const slider = document.getElementById('gallerySlider');
+        const nextBtn = document.getElementById('nextBtn');
+        const prevBtn = document.getElementById('prevBtn');
+
+        // 1. Duplikasi isi gallery (Clone) saat load
+        slider.innerHTML += slider.innerHTML;
+
+        // 2. Fungsi Tombol Next/Prev
+        nextBtn.addEventListener('click', () => {
+            slider.scrollBy({ left: 300, behavior: 'smooth' });
+        });
+
+        prevBtn.addEventListener('click', () => {
+            slider.scrollBy({ left: -300, behavior: 'smooth' });
+        });
+
+        // 3. Logika Infinite Loop (Teleportasi Scroll)
+        slider.addEventListener('scroll', () => {
+            const maxScrollLeft = slider.scrollWidth / 2;
+            
+            if (slider.scrollLeft >= maxScrollLeft) {
+                slider.scrollLeft = slider.scrollLeft - maxScrollLeft;
+            } 
+            else if (slider.scrollLeft <= 0) {
+                slider.scrollLeft = maxScrollLeft;
+            }
+        });
+    </script>
+</body>
+</html>
